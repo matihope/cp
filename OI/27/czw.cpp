@@ -64,6 +64,7 @@ vector<LL> areas;
 struct vertex {
     int val;
     VC edges;
+    int parent = -1;
     int depth = 0;
 };
 
@@ -80,6 +81,7 @@ int Find(int a){
 void Union(int a, int b){
     size_of_colony[Find(a)] += size_of_colony[Find(b)];
     size_of_colony[Find(a)] %= MOD;
+    size_of_colony[Find(b)] = 0;
     count_of_areas--;
     rep[Find(b)] = Find(a);
 }
@@ -94,6 +96,7 @@ void construct_graph(string& inpt, int parent){
     graph.push_back({inpt[pos] - '0', VC()});
     if(parent != -1){
         // graph[me].edges.push_back(parent);
+        graph[me].parent = parent;
         graph[parent].edges.push_back(me);
         graph[me].depth = graph[parent].depth + 1;
         if(graph[me].val == 1){
@@ -131,14 +134,6 @@ enum SIDES {
 bool is_this_side_on(int v, SIDES side){
     if(graph[v].val == 1)
         return true;
-    else if(graph[v].val == 4){
-        for(int i = 0; i < 4; ++i){
-            if((1<<i)&side){
-                if(is_this_side_on(graph[v].edges[3 - i], side))
-                    return true;
-            }
-        }
-    }
     return false;
 }
 
@@ -207,6 +202,28 @@ int main()
                     cmp(graph[v].edges[2], graph[v].edges[3], SIDES::LEFT, SIDES::RIGHT);
                     break;
             }
+        }
+        int p = graph[v].parent;
+        int pos = 0;
+        for(; pos < 4; ++pos)
+            if(graph[p].edges[pos] == v) break;
+        switch(pos){
+            case 0:
+                cmp(v, graph[p].edges[1], SIDES::LEFT, SIDES::RIGHT);
+                cmp(v, graph[p].edges[2], SIDES::TOP, SIDES::BOTTOM);
+                break;
+            case 1:
+                cmp(graph[p].edges[0], v, SIDES::LEFT, SIDES::RIGHT);
+                cmp(v, graph[p].edges[3], SIDES::TOP, SIDES::BOTTOM);
+                break;
+            case 2:
+                cmp(graph[p].edges[0], v, SIDES::TOP, SIDES::BOTTOM);
+                cmp(v, graph[p].edges[3], SIDES::LEFT, SIDES::RIGHT);
+                break;
+            case 3:
+                cmp(graph[p].edges[1], v, SIDES::TOP, SIDES::BOTTOM);
+                cmp(graph[p].edges[2], v, SIDES::LEFT, SIDES::RIGHT);
+                break;
         }
     }
 

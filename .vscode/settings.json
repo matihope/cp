@@ -44,6 +44,11 @@
         "variant": "cpp",
         "any": "cpp",
         "utility": "cpp",
-        "cstdlib": "cpp"
+        "cstdlib": "cpp",
+        "cerrno": "cpp",
+        "complex": "cpp",
+        "limits": "cpp",
+        "numbers": "cpp",
+        "ratio": "cpp"
     }
 }

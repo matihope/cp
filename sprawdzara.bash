@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # CONFIG
-INPUT_PROGRAM="./sio2_staszic/LCA/tester"
-TO_TEST="./build/slo_powraca"
+INPUT_PROGRAM="./test_maker.py"
+TO_TEST="./build/11990_Dynamic_Inversion"
 seed_start=1
-seed_end=100000
+seed_end=100
 
 done=false
 for number in $(seq $seed_start $seed_end)
