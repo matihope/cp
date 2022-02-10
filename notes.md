@@ -61,3 +61,5 @@ Minimalne drzewo rozpinające - minimalna suma wag w grafie:
     ```
 
     </details>
+
+- Trie, geometria, teoria gier, mo, 

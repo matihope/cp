@@ -2,9 +2,9 @@
 
 # CONFIG
 INPUT_PROGRAM="./test_maker.py"
-TO_TEST="./build/11990_Dynamic_Inversion"
+TO_TEST="./build/pam_z_alg"
 seed_start=1
-seed_end=100
+seed_end=1000
 
 done=false
 for number in $(seq $seed_start $seed_end)
@@ -24,7 +24,7 @@ do
     for num2 in $(seq 0 ${#OUTPUT_CORRECT[@]}); do
         if [[ ${OUTPUT_TEST[$num2]} -ne ${OUTPUT_CORRECT[$num2]} ]]; then
             echo -e "\e[1;31mFor seed \e[1;33m${number}\e[1;31m an error occurred for input:\e[1;37m\n$(cat INPUT.txt)\e[0;37m"
-            echo -e -n "Expected:\n\t${OUTPUT_CORRECT[@]}\nRecieved:\n\t"
+            echo -e -n "Expected:\n\t${OUTPUT_CORRECT[@]}\nReceived:\n\t"
             for num3 in $(seq 0 ${#OUTPUT_CORRECT[@]}); do
                 if [[ ${OUTPUT_TEST[$num3]} == ${OUTPUT_CORRECT[$num3]} ]]; then
                     echo -e -n "\e[1;32m"

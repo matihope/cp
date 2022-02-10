@@ -49,6 +49,8 @@
         "complex": "cpp",
         "limits": "cpp",
         "numbers": "cpp",
-        "ratio": "cpp"
+        "ratio": "cpp",
+        "compare": "cpp",
+        "chrono": "cpp"
     }
 }

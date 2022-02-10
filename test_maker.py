@@ -9,23 +9,9 @@ try:
 except IndexError:
     random.seed(6)
 
-out = ''
-n, m = 8, 8
-arr = [i + 1 for i in range(n)]
-random.shuffle(arr)
-out += f'{n} {m}\n'
-for c in arr:
-    out += f'{c} '
-out += '\n'
-outpt = []
-for i in range(m):
-    num = random.choice(arr)
-    while num in outpt:
-        num = random.choice(arr)
-    outpt.append(num)
-    out += f'{num}\n'
-
+s1 = ''.join([random.choice(['a', 'b']) for _ in range(4)])
+s2 = ''.join([random.choice(['a', 'b']) for _ in range(6)])
 with open('INPUT.txt', 'w') as f:
-    f.write(out)
+    f.write(s1 + ' ' + s2)
 
-os.system('./build/count_inversions < INPUT.txt > OUTPUT.txt')
+os.system('./build/pam_brut < INPUT.txt > OUTPUT.txt')

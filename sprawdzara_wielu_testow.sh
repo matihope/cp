@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # CONFIG
-TO_TEST="./build/pif"
+TO_TEST="./build/dyn"
 start_num=1
-end_num=12
-path="sio2_staszic/testy/pif"
+end_num=5
+path="OI/18/test/dyn"
 
 done=false
 for number in $(seq $start_num $end_num)
@@ -14,14 +14,14 @@ do
     fi
 
     # read to arrays
-    OUTPUT_CORRECT=($(cat ${path}/out/${number}.out))
-    OUTPUT_TEST=($(cat ${path}/in/${number}.in | $TO_TEST))
+    OUTPUT_CORRECT=($(cat ${path}/out/dyn${number}ocen.out))
+    OUTPUT_TEST=($(cat ${path}/in/dyn${number}ocen.in | $TO_TEST))
 
     # compare two arrays
     for num2 in $(seq 0 ${#OUTPUT_CORRECT[@]}); do
         if [[ ${OUTPUT_TEST[$num2]} -ne ${OUTPUT_CORRECT[$num2]} ]]; then
             echo -e "\e[1;31mFor test number \e[1;33m${number}\e[1;31m an error occurred"
-            echo -e -n "Expected:\n\t${OUTPUT_CORRECT[@]}\nRecieved:\n\t"
+            echo -e -n "Expected:\n\t${OUTPUT_CORRECT[@]}\nReceived:\n\t"
             for num3 in $(seq 0 ${#OUTPUT_CORRECT[@]}); do
                 if [[ ${OUTPUT_TEST[$num3]} == ${OUTPUT_CORRECT[$num3]} ]]; then
                     echo -e -n "\e[1;32m"

@@ -21,12 +21,15 @@ int main(){
     cin >> n >> m;
     string key, str;
     cin >> key >> str;
-    string neu = + "$" + key + "$" + str;
+    string neu = "$" + key + "$" + str;
     vector<int> prefsuf(neu.size(), 0);
     fill_prefsuf(neu, prefsuf);
     for(size_t i = 0; i < prefsuf.size(); ++i) {
         if(prefsuf[i] == n){
             cout << i - n * 2 << endl;
         }
+    }
+    for(int i = 0; i < prefsuf.size(); ++i){
+        cout << prefsuf[i] << endl;
     }
 }
