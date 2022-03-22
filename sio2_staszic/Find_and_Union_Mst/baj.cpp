@@ -61,7 +61,7 @@ struct edge{
 };
 auto cmp1 = [](const edge& a, const edge& b){ return a.w < b.w; };
 auto cmp2 = [](const edge& a, const edge& b){ return a.i < b.i; };
-vector<edge> vec;
+vector<edge> vec2;
 
 template <typename T>
 void print_queue(T q) {
@@ -104,12 +104,12 @@ int main()
     REP(i, m){
         int a, b, w;
         cin >> a >> b >> w;
-        vec.push_back({a, b, w, i});
+        vec2.push_back({a, b, w, i});
     }
-    sort(vec.begin(), vec.end(), cmp1);
+    sort(vec2.begin(), vec2.end(), cmp1);
     VPII to_add; 
     int prev_waga = 0;
-    for(edge& e: vec){
+    for(edge& e: vec2){
         if(prev_waga != e.w){
             do_the_thing(to_add);
         }
@@ -120,8 +120,8 @@ int main()
         prev_waga = e.w;
     }
     do_the_thing(to_add);
-    sort(vec.begin(), vec.end(), cmp2);
-    for(auto& x: vec){
+    sort(vec2.begin(), vec2.end(), cmp2);
+    for(auto& x: vec2){
         if(!x.taken){
             cout << "NIE" << endl;
         } else {

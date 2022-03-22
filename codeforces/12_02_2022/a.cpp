@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <vector>
 #include <tuple>
-#include <algorithm>
+#include <queue>
 
 using namespace std;
 
@@ -29,7 +29,7 @@ typedef pair<int, int> PII;
 #define INF 1000000001
 #define MP make_pair
 
-#ifndef ONLINE_JUDGE
+#ifdef LOCAL_H
 #define debug(x) cerr << #x <<" "; _print(x); cerr << endl;
 #else
 #define debug(x)
@@ -37,7 +37,7 @@ typedef pair<int, int> PII;
 
 void _print(LL t) {cerr << t;}
 void _print(int t) {cerr << t;}
-void _print(string t) {cerr << t;}
+void _print(const string& t) {cerr << t;}
 void _print(char t) {cerr << t;}
 void _print(LLD t) {cerr << t;}
 void _print(double t) {cerr << t;}
@@ -54,9 +54,38 @@ template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 
-struct luc{
+struct el{
     int val, ile;
 };
+deque<el> q_max, q_min;
+
+void push_max(int val){
+    int ile = 0;
+    while(!q_max.empty() && q_max.back().val <= val){
+        ile += 1 + q_max.back().ile;
+        q_max.pop_back();
+    }
+    q_max.push_back({val, ile});
+}
+
+void pop_max(){
+    if(q_max.front().ile-- == 0)
+        q_max.pop_front();
+}
+
+void push_min(int val){
+    int ile = 0;
+    while(!q_min.empty() && q_min.back().val >= val){
+        ile += 1 + q_min.back().ile;
+        q_min.pop_back();
+    }
+    q_min.push_back({val, ile});
+}
+
+void pop_min(){
+    if(q_min.front().ile-- == 0)
+        q_min.pop_front();
+}
 
 int main()
 {
@@ -64,31 +93,29 @@ int main()
     cin.tie(0);
     cout.tie(0);
 
-    unordered_map<int, int> v;
-    int a, b;
-    cin >> a;
-    int max_val = 0;
-    for(int i = 0; i < 999; ++i){
-        cin >> b;
-        v[abs(a - b)]++;
-        max_val = max(max_val, v[abs(a - b)]);
-        a = b;
-    }
-    vector<luc> result;
-    for(auto x: v){
-        result.push_back({x.first, x.second});
-    }
-    sort(result.begin(), result.end(), [](const luc& a, const luc& b){
-        if(a.ile == b.ile){
-            return a.val > b.val;
+    int t;
+    cin >> t;
+    while(t--){
+        int n;
+        cin >> n;
+        vector<int> vec(n);
+        for(int i = 0; i < n; ++i) { cin >> vec[i]; push_min(vec[i]); }
+        bool good = false;
+        for(int i = 0; i < n - 1; ++i){
+            pop_min();
+            push_max(vec[i]);
+            if(q_max.front().val > q_min.front().val){
+                good = true;
+                break;
+            }
         }
-        return a.ile > b.ile;
-    });
-    cout << max_val << endl;
-    for(auto x: result){
-        if(max_val == x.ile){
-            cout << x.val << "\n";
+        if(good){
+            cout << "YES" << endl;
+        } else {
+            cout << "NO" << endl;
         }
+        q_max.clear();
+        q_min.clear();
     }
 
     return 0;

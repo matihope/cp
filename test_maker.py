@@ -9,9 +9,11 @@ try:
 except IndexError:
     random.seed(6)
 
-s1 = ''.join([random.choice(['a', 'b']) for _ in range(4)])
-s2 = ''.join([random.choice(['a', 'b']) for _ in range(6)])
-with open('INPUT.txt', 'w') as f:
-    f.write(s1 + ' ' + s2)
+n = 1
 
-os.system('./build/pam_brut < INPUT.txt > OUTPUT.txt')
+with open('INPUT.txt', 'w') as f:
+    f.write(f'{random.randint(1, 25000)} ')
+    f.write(f'{random.randint(1, 25000)}\n')
+
+
+os.system('./build/nwd < INPUT.txt > OUTPUT.txt')

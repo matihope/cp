@@ -1,66 +1,44 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <unordered_map>
 
 using namespace std;
 
 int main(){
     ios::sync_with_stdio(false);
     cin.tie(NULL);
-    cout.tie(NULL);
-
+    
     int n, m;
     cin >> n >> m;
-    vector<int> s1(n), s2(m);
-    for(auto& i: s1) cin >> i;
-    for(auto& i: s2) cin >> i;
-
-    // string s1, s2;
-    // cin >> s1 >> s2;
-    // int n = s1.size(), m = s2.size();
-
-    vector<long long> v(m + 1, 0);
-    long long ukos1, ukos2;
-    stack<int> ans;
-    for(int i = 0; i < n; ++i){
-        ukos1 = v[0];
+    vector<int> a(n), b(m);
+    vector<int> prev_a(n), prev_b(m);
+    unordered_map<int, int> map_a, map_b;
+    for(int i = 0; i < n; i++) { 
+        cin >> a[i];
+        prev_a[i] = map_a[a[i]];
+        map_a[a[i]] = i + 1;
+    }
+    for(int i = 0; i < m; i++) {
+        cin >> b[i];
+        prev_b[i] = map_b[b[i]];
+        map_b[b[i]] = i + 1;
+    }
+    
+    vector<vector<int>> tab(2, vector<int>(m + 1));
+    vector<int> mem(m + 1, 0);
+    for(int i = 1; i <= n; ++i){
         for(int j = 1; j <= m; ++j){
-            ukos2 = v[j];
-            if(s1[i] == s2[j - 1]){
-                v[j] = ukos1 + 1;
+            if(a[i - 1] == b[j - 1]){
+                if()
+                    tab[i % 2][j] = mem[prev_b[j - 1]] + 2;
             }
-            else 
-                v[j] = max(v[j - 1], v[j]);
-            ukos1 = ukos2;
+            
+            
+            tab[i % 2][j] = max(tab[(i - 1) % 2][j], max(tab[i % 2][j - 1], tab[i % 2][j]));
         }
+        for(int j = 1; j <= m; ++j)
+            if(a[i - 1] == b[j - 1])
+                mem[j] = tab[(i - 1) % 2][j - 1];
     }
-    // int v_pos = m;
-    // int s_pos = n - 1;
-    // while(v_pos > 0 && s_pos >= 0){
-    //     bool greater = v[v_pos - 1] < v[v_pos];
-    //     bool same = s1[s_pos] == s2[v_pos - 1];
-    //     if(same && greater){
-    //         ans.push(s2[v_pos - 1]);
-    //         s_pos--;
-    //         v_pos--;
-    //     } else if(same && !greater) {
-    //         v_pos--;
-    //     } else if(!same && greater) {
-    //         s_pos--;
-    //     }
-    // }
-    int b = ans.top(); ans.pop();
-    int counter = 0;
-    while(!ans.empty()){
-        int now = ans.top();
-        ans.pop();
-        if(now == b){
-            counter += 2;
-            if(!ans.empty()){
-                b = ans.top();
-                ans.pop();
-            }
-        }
-        else
-            b = now;
-    }
-    cout << counter << endl;
+    cout << tab[n % 2][m] << endl;
 }

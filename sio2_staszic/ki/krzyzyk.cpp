@@ -5,10 +5,7 @@ using namespace std;
 int n, INF = 1000000001;
 
 void swi(char& c){
-    if(c == '1')
-        c = '0';
-    else
-        c = '1';
+    c = (c == '1' ? '0' : '1');
 }
 
 void cross(vector<string>& tab, int x, int y){

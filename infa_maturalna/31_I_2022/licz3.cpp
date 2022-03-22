@@ -2,9 +2,9 @@
 
 using namespace std;
 
-int nwd(int a, int b){
+int gcd(int a, int b){
     if(b == 0) return a;
-    return nwd(b, a % b);
+    return gcd(b, a % b);
 }
 
 struct ciag{
@@ -18,7 +18,7 @@ int main(){
     for(auto& i: tab) cin >> i;
     ciag best = {tab[0], 1, tab[0]}, curr = best;
     while(head < n){
-        curr.nw = nwd(curr.nw, tab[head]);
+        curr.nw = gcd(curr.nw, tab[head]);
         if(curr.nw == 1){
             tail++;
             head = tail + 1;

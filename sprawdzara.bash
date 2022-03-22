@@ -2,7 +2,7 @@
 
 # CONFIG
 INPUT_PROGRAM="./test_maker.py"
-TO_TEST="./build/pam_z_alg"
+TO_TEST="./build/quicker_nwd"
 seed_start=1
 seed_end=1000
 
