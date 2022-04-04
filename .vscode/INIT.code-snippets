@@ -1,0 +1,46 @@
+{
+	// Place your cp workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	"Type cp-boilerplate code": {
+		"scope": "cpp",
+		"prefix": "INIT",
+		"body": [
+			"#include <iostream>",
+			"#include <vector>",
+			"",
+			"using namespace std;",
+			"",
+			"typedef long long LL;",
+			"typedef vector<int> VI;",
+			"",
+			"int main(){",
+			"    ios::sync_with_stdio(false);",
+			"    cin.tie(NULL);",
+			"    ",
+			"    $0",
+			"}",
+		],
+		"description": "Writes includes, namespace, etc."
+	},
+	"Type INFS": {
+		"scope": "cpp",
+		"prefix": "INFS",
+		"body": [
+			"#define INF_I 1000000001",
+			"#define INF_LL 1000000000000000001",
+		],
+		"description": "Writes infs"
+	},
+	"Type MOD": {
+		"scope": "cpp",
+		"prefix": "MOD",
+		"body": [
+			"constexpr int MOD = 1e9 + 7;",
+		],
+		"description": "Writes MOD"
+	}
+}

@@ -2,9 +2,9 @@
 
 # CONFIG
 INPUT_PROGRAM="./test_maker.py"
-TO_TEST="./build/quicker_nwd"
+TO_TEST="./build/dro3"
 seed_start=1
-seed_end=1000
+seed_end=100
 
 done=false
 for number in $(seq $seed_start $seed_end)
