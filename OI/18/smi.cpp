@@ -100,9 +100,8 @@ int main()
     cout << paths.size() << endl;
     for(auto x: paths){
         cout << x.size() - 1 << " ";
-        for(auto l: x){
+        for(auto l: x)
             cout << l << " ";
-        }
         cout << '\n';
     }
 
