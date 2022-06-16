@@ -1,2 +1,3 @@
 # cp
-j - 03.05.2022 - 2211
+---
+Repo with my competetive programming codes.
