@@ -31,7 +31,7 @@ int main(){
         if(a != 1 && a ==  s * s){
             divs.push_back({s, 2});
             a = 1;
-        } 
+        }
         if(div.second > 0)
             divs.push_back(div);
         sort(divs.begin(), divs.end(), [&](const DV a, const DV b){ return a.second > b.second; });

@@ -2,9 +2,9 @@
 
 # CONFIG
 INPUT_PROGRAM="./test_maker.py"
-TO_TEST="./build/dro3"
+TO_TEST="./build/pod"
 seed_start=1
-seed_end=100
+seed_end=1
 
 done=false
 for number in $(seq $seed_start $seed_end)
@@ -12,7 +12,7 @@ do
     if [[ $done == true ]]; then
         break
     fi
-    
+
     # gen files
     $INPUT_PROGRAM $number
 
@@ -34,7 +34,7 @@ do
                 echo -e -n "${OUTPUT_TEST[num3]}\e[0;37m "
             done
             # to add a new line
-            echo 
+            echo
             done=true
             break
         fi

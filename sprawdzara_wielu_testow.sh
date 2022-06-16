@@ -4,7 +4,7 @@
 TO_TEST="./build/dyn"
 start_num=1
 end_num=5
-path="OI/18/test/dyn"
+path="testy"
 
 done=false
 for number in $(seq $start_num $end_num)
@@ -14,8 +14,8 @@ do
     fi
 
     # read to arrays
-    OUTPUT_CORRECT=($(cat ${path}/out/dyn${number}ocen.out))
-    OUTPUT_TEST=($(cat ${path}/in/dyn${number}ocen.in | $TO_TEST))
+    OUTPUT_CORRECT=($(cat ${path}/out/tec${number}ocen.out))
+    OUTPUT_TEST=($(cat ${path}/in/tec${number}ocen.in | $TO_TEST))
 
     # compare two arrays
     for num2 in $(seq 0 ${#OUTPUT_CORRECT[@]}); do
@@ -30,7 +30,7 @@ do
                 fi
                 echo -e -n "${OUTPUT_TEST[num3]}\e[0;37m "
             done
-            echo 
+            echo
             done=true
             break
         fi
