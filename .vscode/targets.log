@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
-
 # GNU Make 4.3
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Jun 15 15:34:27 2022
+# Make data base, printed on Sat Jun 18 12:41:58 2022
 
 # Variables
 
@@ -21,13 +19,11 @@ NO_AT_BRIDGE = 1
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-7a2e1b59-1632-4c97-85cd-aa7bbbcc87b1.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-8fe63931-ba75-4503-ad6b-e5da7c432060.sock
 # environment
 VSCODE_CWD = /home/mateusz
 # environment
-WINDOWPATH = 2
-# environment
-CLOUDSDK_ROOT_DIR = /opt/google-cloud-sdk
+SWAYSOCK = /run/user/1000/sway-ipc.1000.1478.sock
 # environment
 GDM_LANG = en_US.UTF-8
 # default
@@ -53,11 +49,11 @@ VSCODE_LOG_STACK = false
 # automatic
 %F = $(notdir $%)
 # environment
-VSCODE_CODE_CACHE_PATH = /home/mateusz/.config/Code/CachedData/da15b6fd3ef856477bf6f4fb29ba1b7af717770d
+VSCODE_CODE_CACHE_PATH = /home/mateusz/.config/Code/CachedData/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/gdm/Xauthority
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.XMK1N1
 # default
 .LOADED := 
 # default
@@ -79,9 +75,11 @@ SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # default
 .SHELLFLAGS := -c
 # environment
-CLOUDSDK_PYTHON = /usr/bin/python
+WAYLAND_DISPLAY = wayland-0
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
+# environment
+OMF_PATH = /home/mateusz/.local/share/omf
 # environment
 XDG_SESSION_DESKTOP = gnome
 # makefile
@@ -91,13 +89,13 @@ MAKEFILE_LIST :=
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 8108
+VSCODE_PID = 11031
 # environment
-XDG_SESSION_TYPE = x11
+XDG_SESSION_TYPE = wayland
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/mati-arch:@/tmp/.ICE-unix/830,unix/mati-arch:/tmp/.ICE-unix/830
+SESSION_MANAGER = local/mati-arch:@/tmp/.ICE-unix/10070,unix/mati-arch:/tmp/.ICE-unix/10070
 # automatic
 *F = $(notdir $*)
 # environment
@@ -115,19 +113,15 @@ SHELL = /bin/sh
 # default
 MAKECMDGOALS := all
 # environment
-XMODIFIERS = @im=ibus
-# environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # environment
 SHLVL = 1
-# environment
-GOOGLE_CLOUD_SDK_HOME = /opt/google-cloud-sdk
 # environment
 MAKELEVEL := 0
 # default
 MAKE = $(MAKE_COMMAND)
 # environment
-PATH = /opt/google-cloud-sdk/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
+PATH = /usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
 # default
 MAKEFILES := 
 # environment
@@ -135,11 +129,13 @@ MOTD_SHOWN = pam
 # automatic
 ^F = $(notdir $^)
 # environment
-INVOCATION_ID = d758899da16e46d1811417ea005fcd1c
+INVOCATION_ID = 7697999b0e7640c399b2b84aca29c57d
 # environment
 VSCODE_LOG_NATIVE = false
 # environment
 USERNAME = mateusz
+# environment
+GNOME_SETUP_DISPLAY = :1
 # automatic
 ?F = $(notdir $?)
 # environment
@@ -159,23 +155,23 @@ GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/visual-studio-code.desktop
 # makefile
 .DEFAULT_GOAL := 
 # environment
-SYSTEMD_EXEC_PID = 845
+SYSTEMD_EXEC_PID = 10084
 # environment
-DISPLAY = :1
+DISPLAY = :0
 # environment
 USER = mateusz
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 771
+MANAGERPID = 764
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 8090
+GIO_LAUNCHED_DESKTOP_FILE_PID = 11013
 # environment
 _ = /usr/bin/make
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
-JOURNAL_STREAM = 8:21885
+JOURNAL_STREAM = 8:80283
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -183,13 +179,9 @@ VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 HOME = /home/mateusz
 # environment
-QT_IM_MODULE = ibus
-# environment
-CLOUDSDK_PYTHON_ARGS = -S
-# environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-00173848-1.67.1-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-00173848-1.67.2-main.sock
 # default
 .RECIPEPREFIX := 
 # automatic
@@ -206,8 +198,10 @@ ELECTRON_NO_ATTACH_CONSOLE = 1
 XDG_MENU_PREFIX = gnome-
 # environment
 GDMSESSION = gnome
+# environment
+OMF_CONFIG = /home/mateusz/.config/omf
 # variable set hash-table stats:
-# Load=97/1024=9%, Rehash=0, Collisions=3/124=2%
+# Load=95/1024=9%, Rehash=0, Collisions=3/122=2%
 
 # Pattern-specific Variable Values
 
@@ -215,9 +209,9 @@ GDMSESSION = gnome
 
 # Directories
 
-# . (device 2083, inode 6698635): 31 files, no impossibilities.
+# . (device 66310, inode 2495933): 30 files, no impossibilities.
 
-# 31 files, no impossibilities in 1 directories.
+# 30 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -267,12 +261,14 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 39 / storage = 391 B / avg = 10 B
-# current buf: size = 8162 B / used = 391 B / count = 39 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 38 / storage = 384 B / avg = 10 B
+# current buf: size = 8162 B / used = 384 B / count = 38 / avg = 10 B
 
-# strcache performance: lookups = 42 / hit rate = 7%
+# strcache performance: lookups = 41 / hit rate = 7%
 # hash-table stats:
-# Load=39/8192=0%, Rehash=0, Collisions=0/42=0%
-# Finished Make data base on Wed Jun 15 15:34:27 2022
+# Load=38/8192=0%, Rehash=0, Collisions=0/41=0%
+# Finished Make data base on Sat Jun 18 12:41:58 2022
 
  
+make: *** No rule to make target 'all'.  Stop.
+

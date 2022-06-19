@@ -9,8 +9,11 @@ try:
 except IndexError:
     random.seed(1)
 
-n = 1000000
-with open("INPUT.txt", "w") as file:
-    file.write(f"{n - 1}\n")
-    file.write(" ".join([str(u) for u in range(2, n + 1)]))
-os.system(f'./build/dzi < INPUT.txt > OUTPUT.txt')
+n = 5
+max_s = 100
+for _ in range(n):
+    x1 = random.randint(1, max_s)
+    y1 = random.randint(1, max_s)
+    x2 = random.randint(x1, max_s)
+    y2 = random.randint(y1, max_s)
+    print(x1, y1, x2 - x1 + 1, y2 - y1 + 1)

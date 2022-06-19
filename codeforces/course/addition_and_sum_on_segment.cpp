@@ -72,23 +72,11 @@ struct segtree{
         a = modifying_operation(a, b, seg_len);
     }
 
-    // void build(int x, int tl, int tr){
-    //     if(tl == tr){
-    //         sums[x] = 0;
-    //     } else {
-    //         int m = (tl + tr) / 2;
-    //         build(x * 2, tl, m);
-    //         build(x * 2 + 1, m + 1, tr);
-    //         sums[x] = calculating_operation(sums[x * 2], sums[x * 2 + 1]);
-    //     }
-    // }
-
     void init(int n){
         size = 1;
         while(size < n) size *= 2;
         muls.assign(size * 2, 0);
         sums.assign(size * 2, 0);
-        // build(1, 0, size - 1);
     }
 
     void set(int l, int r, int val, int x, int tl, int tr){
