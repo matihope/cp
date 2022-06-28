@@ -2,45 +2,76 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target 'all'.  Stop.
 
 # GNU Make 4.3
+ 
 # Built for x86_64-pc-linux-gnu
+ 
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
+ 
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+ 
 # This is free software: you are free to change and redistribute it.
+ 
 # There is NO WARRANTY, to the extent permitted by law.
+ 
 
-# Make data base, printed on Wed Jun 15 15:34:27 2022
+ 
+# Make data base, printed on Fri Jun 24 17:34:32 2022
+ 
 
 # Variables
+ 
 
+ 
 # environment
+ 
 GDK_BACKEND = x11
+ 
 # environment
+ 
 LC_ALL = C
+ 
 # environment
+ 
 NO_AT_BRIDGE = 1
+ 
 # environment
-GJS_DEBUG_OUTPUT = stderr
+ 
+GTK_RC_FILES = /etc/gtk/gtkrc:/home/mateusz/.gtkrc:/home/mateusz/.config/gtkrc
+ 
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-7a2e1b59-1632-4c97-85cd-aa7bbbcc87b1.sock
+ 
+CHROME_EXECUTABLE = google-chrome-stable
+ 
 # environment
+ 
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-5cc5d4d3-5fde-491c-b31a-41928b5f11d3.sock
+ 
+# environment
+ 
 VSCODE_CWD = /home/mateusz
-# environment
-WINDOWPATH = 2
-# environment
-CLOUDSDK_ROOT_DIR = /opt/google-cloud-sdk
-# environment
-GDM_LANG = en_US.UTF-8
+ 
 # default
+ 
 MAKE_COMMAND := make
+ 
 # automatic
+ 
 @D = $(patsubst %/,%,$(dir $@))
+ 
 # environment
+ 
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+ 
 # default
+ 
 .VARIABLES := 
+ 
 # environment
+ 
 PWD = /home/mateusz/code/cp
+ 
 # automatic
+ 
 %D = $(patsubst %/,%,$(dir $%))
 # environment
 MAIL = /var/spool/mail/mateusz
@@ -53,11 +84,14 @@ VSCODE_LOG_STACK = false
 # automatic
 %F = $(notdir $%)
 # environment
-VSCODE_CODE_CACHE_PATH = /home/mateusz/.config/Code/CachedData/da15b6fd3ef856477bf6f4fb29ba1b7af717770d
+VSCODE_CODE_CACHE_PATH = /home/mateusz/.config/Code/CachedData/30d9c6cd9483b2cc586687151bcbcd635f373630
+# environment
+ 
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session1
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/gdm/Xauthority
+XAUTHORITY = /home/mateusz/.Xauthority
 # default
 .LOADED := 
 # default
@@ -73,17 +107,21 @@ APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-MFLAGS = -pqrR
+PAM_KWALLET5_LOGIN = /run/user/1000/kwallet5.socket
 # environment
-SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+MFLAGS = -pqrR
 # default
 .SHELLFLAGS := -c
 # environment
-CLOUDSDK_PYTHON = /usr/bin/python
+XDG_CONFIG_DIRS = /home/mateusz/.config/kdedefaults:/etc/xdg
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
-XDG_SESSION_DESKTOP = gnome
+OMF_PATH = /home/mateusz/.local/share/omf
+# environment
+XCURSOR_THEME = WhiteSur-cursors
+# environment
+XDG_SESSION_DESKTOP = KDE
 # makefile
 MAKEFILE_LIST := 
 # automatic
@@ -91,13 +129,13 @@ MAKEFILE_LIST :=
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 8108
+VSCODE_PID = 2256
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/mati-arch:@/tmp/.ICE-unix/830,unix/mati-arch:/tmp/.ICE-unix/830
+SESSION_MANAGER = local/mati-arch:@/tmp/.ICE-unix/659,unix/mati-arch:/tmp/.ICE-unix/659
 # automatic
 *F = $(notdir $*)
 # environment
@@ -107,7 +145,7 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # environment
-VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{},"_languagePackSupport":true}
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # makefile
@@ -115,19 +153,13 @@ SHELL = /bin/sh
 # default
 MAKECMDGOALS := all
 # environment
-XMODIFIERS = @im=ibus
-# environment
-GJS_DEBUG_TOPICS = JS ERROR;JS LOG
-# environment
-SHLVL = 1
-# environment
-GOOGLE_CLOUD_SDK_HOME = /opt/google-cloud-sdk
+SHLVL = 2
 # environment
 MAKELEVEL := 0
 # default
 MAKE = $(MAKE_COMMAND)
 # environment
-PATH = /opt/google-cloud-sdk/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
+PATH = /home/mateusz/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/mateusz/instalki/flutter/bin/:/home/mateusz/bin
 # default
 MAKEFILES := 
 # environment
@@ -135,61 +167,72 @@ MOTD_SHOWN = pam
 # automatic
 ^F = $(notdir $^)
 # environment
-INVOCATION_ID = d758899da16e46d1811417ea005fcd1c
+INVOCATION_ID = 3adcf225158a44e9acb46d5091b08674
 # environment
 VSCODE_LOG_NATIVE = false
-# environment
-USERNAME = mateusz
 # automatic
 ?F = $(notdir $?)
 # environment
-XDG_CURRENT_DESKTOP = GNOME
+KDE_APPLICATIONS_AS_SCOPE = 1
+# environment
+XDG_SEAT = seat0
+# environment
+XDG_CURRENT_DESKTOP = KDE
 # automatic
 +F = $(notdir $+)
 # environment
-DESKTOP_SESSION = gnome
+XDG_SEAT_PATH = /org/freedesktop/DisplayManager/Seat0
 # environment
-ORIGINAL_XDG_CURRENT_DESKTOP = GNOME
+DESKTOP_SESSION = plasma
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = KDE
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
 LOGNAME = mateusz
 # environment
-GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/visual-studio-code.desktop
+XDG_VTNR = 1
 # makefile
 .DEFAULT_GOAL := 
 # environment
-SYSTEMD_EXEC_PID = 845
+SYSTEMD_EXEC_PID = 787
 # environment
-DISPLAY = :1
+ 
+DISPLAY = :0
+# environment
+GTK_MODULES = canberra-gtk-module
 # environment
 USER = mateusz
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 771
+KDE_SESSION_UID = 1000
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 8090
+MANAGERPID = 579
+# environment
+LC_MEASUREMENT = pl_PL.UTF-8
 # environment
 _ = /usr/bin/make
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
-JOURNAL_STREAM = 8:21885
+JOURNAL_STREAM = 8:20935
 # environment
 XDG_SESSION_CLASS = user
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
+GTK2_RC_FILES = /etc/gtk-2.0/gtkrc:/home/mateusz/.gtkrc-2.0:/home/mateusz/.config/gtkrc-2.0
+# environment
 HOME = /home/mateusz
-# environment
-QT_IM_MODULE = ibus
-# environment
-CLOUDSDK_PYTHON_ARGS = -S
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-00173848-1.67.1-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-00173848-1.68.1-main.sock
+# environment
+XDG_SESSION_ID = 2
+# environment
+XCURSOR_SIZE = 24
 # default
 .RECIPEPREFIX := 
 # automatic
@@ -197,17 +240,21 @@ VSCODE_IPC_HOOK = /run/user/1000/vscode-00173848-1.67.1-main.sock
 # default
 SUFFIXES := 
 # environment
+QT_AUTO_SCREEN_SCALE_FACTOR = 0
+# environment
 VSCODE_CLI = 1
 # environment
 ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+KDE_SESSION_VERSION = 5
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink guile load
 # environment
-XDG_MENU_PREFIX = gnome-
+KDE_FULL_SESSION = true
 # environment
-GDMSESSION = gnome
+OMF_CONFIG = /home/mateusz/.config/omf
 # variable set hash-table stats:
-# Load=97/1024=9%, Rehash=0, Collisions=3/124=2%
+# Load=102/1024=10%, Rehash=0, Collisions=3/129=2%
 
 # Pattern-specific Variable Values
 
@@ -260,6 +307,7 @@ GNUmakefile:
 #  Failed to be updated.
 
 # files hash-table stats:
+ 
 # Load=6/1024=1%, Rehash=0, Collisions=0/15=0%
 # VPATH Search Paths
 
@@ -273,6 +321,6 @@ GNUmakefile:
 # strcache performance: lookups = 42 / hit rate = 7%
 # hash-table stats:
 # Load=39/8192=0%, Rehash=0, Collisions=0/42=0%
-# Finished Make data base on Wed Jun 15 15:34:27 2022
+# Finished Make data base on Fri Jun 24 17:34:32 2022
 
  
