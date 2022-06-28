@@ -2,6 +2,7 @@
 #include <vector>
 #include <set>
 #include <map>
+#include <queue>
 
 using namespace std;
 
@@ -42,6 +43,7 @@ bool doRectsIntersect(const Jez& a, const Jez& b){
 }
 
 int main(){
+    // program's limitation is x + w and y + w <= 10^3
     ios::sync_with_stdio(false);
     cin.tie(NULL);
 
@@ -60,28 +62,45 @@ int main(){
         for(int j = i + 1; j < n; ++j){
             if(doRectsIntersect(jeziora[i], jeziora[j])){
                 Union(i, j);
-                cout << jeziora[i].x << " " << jeziora[i].y << " <-> " << jeziora[j].x << " " << jeziora[j].y << endl;
+                // cout << jeziora[i].x << " " << jeziora[i].y << " <-> " << jeziora[j].x << " " << jeziora[j].y << endl;
             }
         }
     }
 
-    map<int, pair<pair<int, int>, vector<int>>> groups;
+    map<int, vector<int>> groups;
     set<int> grps;
     for(int i = 0; i < n; ++i){
         int p = Find(i);
         grps.insert(p);
-        groups[p].second.push_back(i);
-
-        if(groups[p].first.first == 0)
-            groups[p].first.first = jeziora[i].x;
-        else
-            groups[p].first.first = min(jeziora[i].x, groups[p].first.first);
-
-        if(groups[p].first.second == 0)
-            groups[p].first.second = jeziora[i].y;
-        else
-            groups[p].first.second = min(jeziora[i].y, groups[p].first.second);
+        groups[p].push_back(i);
     }
-    cout << "Y";
+
+    auto cmp = [&](const pair<int, int>& a, const pair<int, int>& b){
+        return a.first < b.first;
+    };
+    typedef priority_queue<pair<int, int>, vector<pair<int, int>>, decltype(cmp)> myQ;
+    vector<myQ> sizes(5, myQ(cmp));
+    for(auto& g: groups){
+        vector<vector<bool>> area(1000, vector<bool>(1000, 0));
+        const auto& offset = g.first;
+        int total_area = 0;
+        for(const int& id: g.second){
+            const Jez& j = jeziora[id];
+            for(int x = j.x; x < j.w + j.x; ++x){
+                for(int y = j.y; y < j.h + j.y; ++y){
+                    if(!area[y][x])
+                        total_area++;
+                    area[y][x] = true;
+                }
+            }
+        }
+        sizes[min(total_area % 8, 8 - (total_area % 8))].push(make_pair(total_area, g.second.size()));
+    }
+    for(int i = 0; i < 5; ++i){
+        if(sizes[i].size()){
+            cout << sizes[i].top().first << " " << sizes[i].top().second << endl;
+            return 0;
+        }
+    }
 
 }

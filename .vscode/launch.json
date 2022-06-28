@@ -9,7 +9,11 @@
             "type": "python",
             "request": "launch",
             "program": "${file}",
-            "console": "integratedTerminal"
+            "console": "integratedTerminal",
+            "args": [
+                "<",
+                "${workspaceFolder}/INPUT.txt"
+            ],
         },
         {
             "name": "g++ - Build and debug active file",
