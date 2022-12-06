@@ -28,7 +28,7 @@
             "label": "C: gcc build active file",
             "command": "/usr/bin/gcc",
             "args": [
-                "@${workspaceFolder}/studia/opcje",
+                // "@${workspaceFolder}/studia/opcje",
                 "-fdiagnostics-color=always",
                 "-g",
                 "${file}",
