@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 using namespace std;
 
@@ -37,4 +38,7 @@ int main(){
         }
     }
     cout << ans << endl;
+    int replace = min(a.size(), b.size()) - ans.size();
+    int to_add = abs((int)a.size() - (int)b.size());
+    cout << replace + to_add << endl;
 }
