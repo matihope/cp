@@ -4,7 +4,6 @@
 #include <cstdint>
 #include <iostream>
 #include <vector>
-#include <ranges>
 
 using namespace std;
 
@@ -57,7 +56,8 @@ int main() {
   do {
     auto board = 0;
     bool good = true;
-    for (auto [row, col] : views::enumerate(order)) {
+    for (auto row = 0; row < 8; row++) {
+      auto col = order[row];
       if (input[row][col] == '*') {
         good = false;
         break;
