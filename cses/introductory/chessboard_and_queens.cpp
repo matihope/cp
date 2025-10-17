@@ -1,27 +1,17 @@
 #include <algorithm>
 #include <array>
 #include <cassert>
+#include <cstdint>
 #include <iostream>
-#include <ranges>
 #include <vector>
+#include <ranges>
 
 using namespace std;
 
-using i64 = std::int64_t;
-using u64 = std::uint64_t;
-using i32 = std::int32_t;
-using u32 = std::uint32_t;
-
-using VI = vector<i32>;
-using Vu64 = vector<u64>;
-
-u64 getBoardWith(u64 board, u64 new_queen_x, u64 new_queen_y) {
-  return board | (1ULL << (8 * new_queen_x + new_queen_y));
-}
-
-bool isQueenAt(u64 board, u64 query_x, u64 query_y) {
-  return (board & (1ULL << (8 * query_x + query_y))) != 0;
-}
+using i64 = int64_t;
+using u64 = uint64_t;
+using i32 = int32_t;
+using u32 = uint32_t;
 
 u64 putQueenAt(u64 board, u64 new_queen_x, u64 new_queen_y) {
   u64 diff = new_queen_x + 8 - new_queen_y; // in [-8, 8]
@@ -62,18 +52,19 @@ int main() {
     }
   }
 
-  std::vector<u64> order = {0, 1, 2, 3, 4, 5, 7};
+  std::vector<u64> order = {0, 1, 2, 3, 4, 5, 6, 7};
   u64 counter = 0;
   do {
     auto board = 0;
     bool good = true;
-    for (auto [row, col] : std::views::enumerate(order)) {
+    for (auto [row, col] : views::enumerate(order)) {
       if (input[row][col] == '*') {
         good = false;
         break;
       }
       if (canPutQueenAt(board, row, col)) {
         board = putQueenAt(board, row, col);
+      } else {
         good = false;
         break;
       }
